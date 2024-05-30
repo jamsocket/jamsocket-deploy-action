@@ -1,4 +1,4 @@
-# Jamsocket Deploy Action
+# Jamsocket Deploy Action 🚀
 
 Automatically deploy session backend code to your Jamsocket service.
 
@@ -6,9 +6,9 @@ Automatically deploy session backend code to your Jamsocket service.
 
 To use this Jamsocket deploy action, add the action to your [Github Workflow](https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization#creating-a-starter-workflow).
 
-Here's an example of an action that will run whenever code is pushed to `main`.
+Here's an example of an action that will run whenever code is pushed to `main`. This action would live under the `.github/workflows` folder.
 
-```yaml
+```yaml filename=depoy.yaml
 name: Deploy to Jamsocket
 on:
   push:
@@ -41,3 +41,7 @@ The following options must be configured in order to make a deployment. As show 
 | jamsocket_service | The name of the Jamsocket service you are pushing your code to. | `with` | Yes |
 | docker_build_context | The path to your Docker build context, which should be the same as the WORKDIR specified in your Dockerfile. | `with` | Yes |
 | dockerfile_path | The path to your Dockerfile. | `with` | Yes |
+
+## Deployment
+
+When a Jamsocket deployment is successful, you will find that a new image has been pushed to your Jamsocket service. You can find new images on the service page under `Docker Images`.
