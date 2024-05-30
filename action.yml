@@ -60,3 +60,7 @@ runs:
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
+
+branding:
+  icon: 'check-circle'
+  color: 'blue'
