@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Deploy to Jamsocket
-        uses: jamsocket/jamsocket-deploy-action@v0.1.0
+        uses: jamsocket/jamsocket-deploy-action@v0.1.1
         with:
           jamsocket_api_token: ${{ secrets.JAMSOCKET_API_TOKEN }}
           jamsocket_account: my-jamsocket-account
