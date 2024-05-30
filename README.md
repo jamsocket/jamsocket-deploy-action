@@ -6,7 +6,9 @@ Automatically deploy session backend code to your Jamsocket service.
 
 To use this Jamsocket deploy action, add the action to your [Github Workflow](https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization#creating-a-starter-workflow).
 
-Here's an example of an action that will run whenever code is pushed to `main`. To use this example, paste the code snippet below in a file called `deploy.yml`. Add that file to the `.github/workflows` directory in the root of your repository.
+Here's an example of an action that will run whenever code is pushed to `main`.
+
+To use this example, paste the code snippet below in a file called `deploy.yml`. Add that file to the `.github/workflows` directory in the root of your repository. When you push your code to `main`, you can view the running action in the `Actions` tab of your Github repository.
 
 ```yaml
 name: Deploy to Jamsocket
