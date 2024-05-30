@@ -36,11 +36,11 @@ runs:
         JAMCR_PASS="${JAMSOCKET_API_TOKEN#*.}"
         echo "JAMCR_PASS=$JAMCR_PASS" >> $GITHUB_ENV
 
-    - name: Log into registry ${{ env.REGISTRY }}
+    - name: Log into Jamsocket's Docker registry
       if: github.event_name != 'pull_request'
       uses: docker/login-action@v3
       with:
-        registry: ${{ env.REGISTRY }}
+        registry: new.jamcr.io
         username: ${{ env.JAMCR_USER }}
         password: ${{ env.JAMCR_PASS }}
 
@@ -48,7 +48,7 @@ runs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ${{ env.REGISTRY }}/${{ inputs.jamsocket_account }}/${{ inputs.jamsocket_service }}
+        images: new.jamcr.io/${{ inputs.jamsocket_account }}/${{ inputs.jamsocket_service }}
         tags: |
           type=raw,value=latest
 
