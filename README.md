@@ -8,7 +8,7 @@ To use this Jamsocket deploy action, add the action to your [Github Workflow](ht
 
 Here's an example of an action that will run whenever code is pushed to `main`. This action would live under the `.github/workflows` folder.
 
-```yaml filename=depoy.yaml
+```yaml
 name: Deploy to Jamsocket
 on:
   push:
