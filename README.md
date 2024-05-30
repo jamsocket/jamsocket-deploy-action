@@ -2,9 +2,37 @@
 
 Automatically deploy session backend code to your Jamsocket service.
 
+## Configuration
+
+To use this Jamsocket deploy action, add the action to your [Github Workflow](https://docs.github.com/en/actions/using-workflows/creating-starter-workflows-for-your-organization#creating-a-starter-workflow).
+
+Here's an example of an action that will run whenever code is pushed to `main`.
+
+```yaml
+name: Deploy to Jamsocket
+on:
+  push:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Jamsocket
+        uses: jamsocket/jamsocket-deploy-action@v1.0.0
+        with:
+          jamsocket_api_token: ${{ secrets.JAMSOCKET_API_TOKEN }}
+          jamsocket_account: my-jamsocket-account
+          jamsocket_service: my-jamsocket-service
+          docker_build_context: ./server
+          dockerfile_path: ./server/Dockerfile
+```
+
 ### Required Setup
 
-The following options must be configured in order to make a deployment.
+The following options must be configured in order to make a deployment. As show in the example above, the following options are added under the `with` section of your `Deploy to Jamsocket` step.
 
 | Key | Value Information | Type| Required |
 |----------|----------|----------|----------|
