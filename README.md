@@ -44,4 +44,4 @@ The following options must be configured in order to make a deployment. As show 
 
 ## Deployment
 
-When a Jamsocket deployment is successful, you will find that a new image has been pushed to your Jamsocket service. You can find new images on the service page under `Docker Images`.
+When a Jamsocket deployment is successful, you will find that a new image has been pushed to your Jamsocket service. You can find new images in the [Jamsocket dashboard](https://app.jamsocket.com/home) on the service page under `Docker Images`.
