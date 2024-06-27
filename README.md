@@ -43,6 +43,7 @@ The following options must be configured in order to make a deployment. As shown
 | jamsocket_service | The name of the Jamsocket service you are pushing your code to. | `with` | Yes |
 | docker_build_context | The path to the directory that your [Docker build should access](https://docs.docker.com/build/building/context/). This is often the directory the Dockerfile is in. | `with` | Yes |
 | dockerfile_path | The path to your Dockerfile. | `with` | Yes |
+| docker_tag | A custom tag for your Docker image. | `with` | No |
 
 ## Deployment
 
