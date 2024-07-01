@@ -16,7 +16,7 @@ inputs:
   dockerfile_path:
     description: 'Path to your Dockerfile'
     required: true
-  docker_tag:
+  tag:
     description: 'Custom tag for your Docker image'
     required: false
     default: 'latest'
@@ -54,7 +54,12 @@ runs:
       with:
         images: new.jamcr.io/${{ inputs.jamsocket_account }}/${{ inputs.jamsocket_service }}
         tags: |
-          type=raw,value=${{ inputs.docker_tag }}
+          type=raw,value=${{ inputs.tag }}
+        labels: |
+          hash=${{ github.sha }}
+          message=${{ github.event.head_commit.message }}
+          branch=${{ github.ref_name }}
+          repository=${{ github.repository }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
@@ -63,6 +68,7 @@ runs:
         file: ${{ inputs.dockerfile_path }}
         push: true
         tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
 
 branding:
   icon: 'check-circle'
