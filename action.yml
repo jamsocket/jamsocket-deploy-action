@@ -13,6 +13,9 @@ inputs:
   docker_build_context:
     description: 'Path to your Docker build context'
     required: true
+  docker_additional_build_contexts:
+    description: 'List of additional build contexts'
+    required: false
   dockerfile_path:
     description: 'Path to your Dockerfile'
     required: true
@@ -65,6 +68,7 @@ runs:
       uses: docker/build-push-action@v5
       with:
         context: ${{ inputs.docker_build_context }}
+        build-contexts: ${{ inputs.docker_additional_build_contexts }}
         file: ${{ inputs.dockerfile_path }}
         push: true
         tags: ${{ steps.meta.outputs.tags }}
