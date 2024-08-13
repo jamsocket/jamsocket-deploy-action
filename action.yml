@@ -48,7 +48,6 @@ runs:
         echo "JAMCR_PASS=$JAMCR_PASS" >> $GITHUB_ENV
 
     - name: Log into Jamsocket's Docker registry
-      if: github.event_name != 'pull_request'
       uses: docker/login-action@v3
       with:
         registry: ${{ inputs.jamsocket_registry_url }}
