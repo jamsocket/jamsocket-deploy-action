@@ -55,6 +55,12 @@ runs:
         username: ${{ env.JAMCR_USER }}
         password: ${{ env.JAMCR_PASS }}
 
+    - name: Get commit message
+      shell: bash
+      run: |
+        COMMIT_MSG=$(git log -1 --pretty=%B)
+        echo "COMMIT_MSG=$COMMIT_MSG" >> $GITHUB_ENV
+
     - name: Extract Docker metadata
       id: meta
       uses: docker/metadata-action@v5
@@ -64,7 +70,7 @@ runs:
           type=raw,value=${{ inputs.tag }}
         labels: |
           hash=${{ github.sha }}
-          message=${{ github.event.head_commit.message }}
+          message=${{ env.COMMIT_MSG }}
           branch=${{ github.ref_name }}
           repository=${{ github.repository }}
 
