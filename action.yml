@@ -58,8 +58,10 @@ runs:
     - name: Get commit message
       shell: bash
       run: |
-        COMMIT_MSG=$(git log -1 --pretty=%B)
-        echo "COMMIT_MSG=$COMMIT_MSG" >> $GITHUB_ENV
+        echo 'COMMIT_MSG<<EOF' >> $GITHUB_ENV
+        git log -1 --pretty=%B >> $GITHUB_ENV
+        echo 'EOF' >> $GITHUB_ENV
+
 
     - name: Extract Docker metadata
       id: meta
